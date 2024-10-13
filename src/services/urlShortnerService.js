@@ -3,10 +3,10 @@ const Url = require('../models/urlModel');
 
 
 
-exports.shortenURL = async (originalUrl) => {
+exports.shortenURL = async (originalUrl, user) => {
     const urlCode = crypto.randomBytes(3).toString('hex');
 
-    const urlData = await Url.create({ original_url: originalUrl, url_code: urlCode });
+    const urlData = await Url.create({ original_url: originalUrl, url_code: urlCode, id_user: user });
 
     return {urlCode, urlData};
 }

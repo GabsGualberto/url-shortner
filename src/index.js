@@ -9,7 +9,7 @@ const shortnerRoutes = require('./routes/shortUrlRoutes');
 
 app.use(express.json());
 
-app.use('/', userRoutes);
+app.use('/user', userRoutes);
 app.use('/', shortnerRoutes);
 
 sequelize.sync().then(() => {

@@ -17,6 +17,10 @@ const shortened_url = sequelize.define('shortened_url', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    id_user: {
+        type: DataTypes.INTEGER,
+        allowNull: true
+    },
     created_at: {
         type: DataTypes.DATE,
         allowNull: false,
