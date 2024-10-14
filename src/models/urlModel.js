@@ -21,6 +21,10 @@ const shortened_url = sequelize.define('shortened_url', {
         type: DataTypes.INTEGER,
         allowNull: true
     },
+    total_access: {
+        type: DataTypes.INTEGER,
+        allowNull: true
+    },
     created_at: {
         type: DataTypes.DATE,
         allowNull: false,

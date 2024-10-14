@@ -2,8 +2,8 @@ const urlShortnerService = require('../services/urlShortnerService');
 
 exports.CreateShortnedUrl = async (req, res) => {
     const { originalURL } = req.body;
-    const { user } = req.user ? req.user.id : null;
-    const urlData = await urlShortnerService.shortenURL(originalURL, user);
+    const user  = req.user ? req.user : null;
+    const urlData = await urlShortnerService.shortenURL(originalURL, user.id);
     res.status(201).json(urlData);
 };
 

@@ -12,11 +12,15 @@ exports.shortenURL = async (originalUrl, user) => {
 }
 
 exports.getOriginalUrl = async (urlCode) => {
-    console.log("url", urlCode)
     const originalUrl = await Url.findOne({where: {url_code: urlCode}});
-    console.log(originalUrl)
     if (!originalUrl) {
       console.log("URL not founded"); 
     }
     return originalUrl;
   };
+
+exports.updateTotalCount = async(urlCode, new_count) => {
+  const originalUrl = await Url.findOne({where: {url_code: urlCode}});
+  originalUrl.set({total_access: new_count});
+  return originalUrl;
+}
